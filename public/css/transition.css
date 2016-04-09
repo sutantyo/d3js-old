@@ -1,0 +1,22 @@
+.menu-enter {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+  position: absolute;
+}
+
+.menu-enter.menu-enter-active {
+  opacity: 1;
+  color: red;
+  position: absolute;
+}
+
+.menu-leave {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+  position: absolute;
+}
+
+.menu-leave.menu-leave-active {
+  opacity: 0.01;
+  position: absolute;
+}
