@@ -88,7 +88,7 @@ let createHtml = function(){
           {
             std::cout << "Hello" << std::endl;
           }
-          
+
       </sanitise>
       </CodeCard>
 

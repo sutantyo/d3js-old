@@ -3,11 +3,27 @@ import Masonry from 'react-masonry-component';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MenuItem from './MenuItem'
 
+import hljs from 'highlight.js';
+
+import Basic from './Basic';
 import BasicShapes from './BasicShapes';
 
 
 let itemList = {};
+itemList["Basic"] = Basic;
 itemList["BasicShapes"] = BasicShapes;
+
+let menuData = [ { name: "Basic", title: "The Basics",
+                      width: "24%", height:"200px", color: "white" },
+                 { name: "BasicShapes", title: "Basic Shapes",
+                      width: "24%", height:"200px", color: "white" },
+                 { name: "BasicLines", title: "Basic Lines",
+                      width: "24%", height:"600px", color: "white" },
+                 { name: "BasicCharts", title: "Simple Charts",
+                      width: "24%", height:"600px", color: "green" },
+                 { name: "BasicAnimations", title: "Simple Animations",
+                      width: "24%", height:"600px", color: "green" }
+               ];
 
 const masonryOptions = {
     transitionDuration: 0
@@ -21,17 +37,15 @@ class Menu extends React.Component{
       showmenu : true
     }
   }
-  pageChange(name){
+  pageChange(title){
       this.setState({
         showmenu : false,
-        pageName : name
+        pageName : title
       });
   }
   componentDidMount(){
-      this.setState({
-        showmenu : false,
-        pageName : 'BasicShapes'
-      });
+  }
+  componentDidUpdate(){
   }
   render(){
     let currentPage;
@@ -39,12 +53,12 @@ class Menu extends React.Component{
       currentPage = createInitialPage(this.pageChange.bind(this));
     }
     else{
+      console.log(this.state.pageName);
       currentPage = createPage(this.state.pageName);
       //currentPage = <BasicShapes></BasicShapes> ;
-      //console.log(currentPage);
     }
     return(
-      <ReactCSSTransitionGroup transitionName="menu" transitionEnterTimeout={2000} transitionLeaveTimeout={1000}>
+      <ReactCSSTransitionGroup transitionName="menu" transitionEnterTimeout={1000} transitionLeaveTimeout={500}>
         {currentPage}
       </ReactCSSTransitionGroup>
     )
@@ -52,13 +66,6 @@ class Menu extends React.Component{
 }
 
 export default Menu;
-
-let menuData = [ { name: "BasicShapes", width: "24%", height:"200px", color: "white" },
-                 { name: "Second", width: "24%", height:"200px", color: "white" },
-                 { name: "Third", width: "24%", height:"600px", color: "white" },
-                 { name: "Fourth", width: "24%", height:"600px", color: "green" },
-                 { name: "Fifth", width: "24%", height:"600px", color: "green" }
-               ];
 
 let createInitialPage = function(pageChangeCB){
   let elements = menuData.map(element =>
@@ -73,22 +80,3 @@ let createInitialPage = function(pageChangeCB){
 let createPage = function(pageName){
   return React.createElement(itemList[pageName],{key:pageName});
 }
-
-
-
-
-
-
-
-  /*
- let initialPage = React.createElement('Masonry',
-                     { className:  'my-gallery-class', // default ''
-                       elementType:'menuitem', // default 'div'
-                       options: masonryOptions, // default {}
-                       disableImagesLoaded:false, // default false
-                       style:{
-                         margin: '100px 0 100px 0 auto'
-                       }
-                     },
-                     elements);
-  */

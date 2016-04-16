@@ -19,11 +19,12 @@ class MainPage extends React.Component{
       );
     }
 
+    //<BasicShapes />
+    //{this.state.currentPage}
     render(){
-      //{this.state.currentPage}
       return (
         <div>
-          <BasicShapes />
+    {this.state.currentPage}
         </div>
       );
     }

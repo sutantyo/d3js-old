@@ -1,11 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/lib/paper';
-import ReactDOM from 'react-dom';
 
-import CodeBlock from '../helpers/CodeBlock';
-import CodeCard from '../helpers/CodeCard';
-
-import hljs from 'highlight.js';
+import Highlight from 'react-highlight';
 
 import d3 from 'd3';
 
@@ -24,16 +20,13 @@ class BasicShapes extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      contents : createHtml()
     }
+    console.log(createHtml());
   }
 
   componentDidMount(){
-    //console.log("calling componentDidMount");
-    hljs.initHighlightingOnLoad(this);
-    //console.log(this);
-    //hljs.highlightBlock.bind(this,this);
-    //let current = ReactDOM.findDOMNode(this);
-    //hljs.highlightBlock(current);
+    console.log("calling componentDidMount");
     draw();
   }
   createMarkup(){
@@ -41,8 +34,15 @@ class BasicShapes extends React.Component{
   }
 
   render(){
+    console.log(this.state.contents);
     return(
       <div>
+        <Paper
+          zDepth = {4}
+          style = {paperStyle}
+        >
+          Basic Shapes
+        </Paper>
         {createHtml()}
         {draw()}
       </div>
@@ -54,7 +54,7 @@ class BasicShapes extends React.Component{
 export default BasicShapes;
 
 let draw = function(){
-  //console.log('calling draw');
+  console.log('calling draw');
   d3.select('#circles')
     .append('svg')
       .attr('width','100%')
@@ -80,28 +80,29 @@ let createHtml = function(){
       </p>
 
       <div id='circles'></div>
+        <pre><code className='c++'>
+          <sanitise>
+  #include<iostream>
 
-      <CodeCard lang='c++' title='sample code'><sanitise>
-          #include<iostream>
+  int main()
+  {
+    std::cout << "Hello" << std::endl;
+  }
 
-          int main()
-          {
-            std::cout << "Hello" << std::endl;
-          }
-          
-      </sanitise>
-      </CodeCard>
+          </sanitise>
+        </code></pre>
 
-      <CodeBlock lang='c++' title='sample code'>
-      <sanitise>
-          #include<iostream>
+      <pre><code className='js'>
+        <sanitise>
+  d3.select('#circles').append('svg')
 
-      int main()
-            {
-            std::cout << "Hello" << std::endl;
-          }
-      </sanitise>
-      </CodeBlock>
+  var t = function(i,j){
+
+  }
+
+        </sanitise>
+      </code></pre>
+
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
         industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type

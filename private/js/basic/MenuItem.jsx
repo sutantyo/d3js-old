@@ -14,7 +14,7 @@ let paperStyle = {
 
 let buttonStyle = {
   position: 'absolute',
-  bottom: '0',
+  bottom: '0px',
   height: '40px',
   width: '100%'
 }
@@ -37,7 +37,7 @@ class MenuItem extends React.Component{
         style = {paperStyle}
       >
         <FlatButton style={buttonStyle} onClick={this.props.pageChange.bind(this,element.name)}>
-            {element.name}
+            {element.title}
         </FlatButton>
       </Paper>
     )
