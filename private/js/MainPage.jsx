@@ -13,14 +13,6 @@ class MainPage extends React.Component{
       }
     }
 
-    handleClick(){
-      this.setState(
-        {currentPage: <BasicShapes />}
-      );
-    }
-
-    //<BasicShapes />
-    //{this.state.currentPage}
     render(){
       return (
         <div>

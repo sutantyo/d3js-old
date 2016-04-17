@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 import Paper from 'material-ui/lib/paper';
 import FlatButton from 'material-ui/lib/flat-button';
 
@@ -36,9 +37,12 @@ class MenuItem extends React.Component{
         zDepth = {4}
         style = {paperStyle}
       >
-        <FlatButton style={buttonStyle} onClick={this.props.pageChange.bind(this,element.name)}>
-            {element.title}
-        </FlatButton>
+        {/*<FlatButton style={buttonStyle} onClick={this.props.pageChange.bind(this,element.name)}>*/}
+        <Link to={this.props.element.name}>
+          <FlatButton style={buttonStyle}>
+              {element.title}
+          </FlatButton>
+        </Link>
       </Paper>
     )
   }
