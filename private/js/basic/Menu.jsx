@@ -7,22 +7,28 @@ import hljs from 'highlight.js';
 
 import Basic from './Basic';
 import BasicShapes from './BasicShapes';
+import ForceLayout from '../advanced/ForceLayout';
 
 
 let itemList = {};
 itemList["Basic"] = Basic;
 itemList["BasicShapes"] = BasicShapes;
+itemList["ForceLayout"] = ForceLayout;
 
 let menuData = [ { name: "Basic", title: "The Basics",
                       width: "24%", height:"200px", color: "white" },
                  { name: "BasicShapes", title: "Basic Shapes",
                       width: "24%", height:"200px", color: "white" },
                  { name: "BasicLines", title: "Basic Lines",
-                      width: "24%", height:"600px", color: "white" },
+                      width: "24%", height:"200px", color: "white" },
                  { name: "BasicCharts", title: "Simple Charts",
-                      width: "24%", height:"600px", color: "green" },
+                      width: "24%", height:"200px", color: "white" },
+                 { name: "BasicData", title: "Working with Data",
+                      width: "24%", height:"200px", color: "white" },
                  { name: "BasicAnimations", title: "Simple Animations",
-                      width: "24%", height:"600px", color: "green" }
+                      width: "24%", height:"200px", color: "white" },
+                 { name: "ForceLayout", title: "Force Layout",
+                      width: "24%", height:"200px", color: "white" }
                ];
 
 const masonryOptions = {
@@ -71,7 +77,7 @@ let createInitialPage = function(pageChangeCB){
   let elements = menuData.map(element =>
     <MenuItem key={element.name} element={element} pageChange={pageChangeCB}/>
   );
-  let initialPage = <Masonry element-type='menuitem'>
+  let initialPage = <Masonry>
       {elements}
   </Masonry>
   return initialPage;

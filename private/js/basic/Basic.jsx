@@ -1,5 +1,5 @@
 import React from 'react';
-import Paper from 'material-ui/lib/paper';
+import Paper from 'material-ui/Paper';
 import ReactDOM from 'react-dom';
 
 import CodeBlock from '../helpers/CodeBlock';

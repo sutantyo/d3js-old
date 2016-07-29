@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
-import Paper from 'material-ui/lib/paper';
-import FlatButton from 'material-ui/lib/flat-button';
+import Paper from 'material-ui/Paper';
+import FlatButton from 'material-ui/FlatButton';
 
 
 let paperStyle = {

@@ -16,19 +16,32 @@ let paperStyle = {
   marginBottom: '0px',
 }
 
-class //classname extends React.Component{
+class BasicShapes extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      contents : createHtml()
+    }
+    console.log(createHtml());
   }
 
   componentDidMount(){
     draw();
+  }
+  createMarkup(){
+    return {__html: ''}
   }
 
   render(){
     console.log(this.state.contents);
     return(
       <div>
+        <Paper
+          zDepth = {4}
+          style = {paperStyle}
+        >
+          Basic Shapes
+        </Paper>
         {createHtml()}
       </div>
 
@@ -36,7 +49,7 @@ class //classname extends React.Component{
   }
 }
 
-export default //className;
+export default BasicShapes;
 
 let draw = function(){
   console.log('calling draw');
@@ -53,15 +66,9 @@ let draw = function(){
 
 let createHtml = function(){
   return <div className='container'>
-      <h2> Lorem Ipsum </h2>
+      <h2> Simple Charts </h2>
 
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-        and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-        leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-        software like Aldus PageMaker including versions of Lorem Ipsum.
       </p>
 
       <div id='circles'></div>

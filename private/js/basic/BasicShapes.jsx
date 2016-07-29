@@ -1,5 +1,5 @@
 import React from 'react';
-import Paper from 'material-ui/lib/paper';
+import Paper from 'material-ui/Paper';
 import ReactDOM from 'react-dom';
 
 import CodeBlock from '../helpers/CodeBlock';
@@ -44,7 +44,6 @@ class BasicShapes extends React.Component{
     return(
       <div>
         {createHtml()}
-        {draw()}
       </div>
 
     );
@@ -88,7 +87,7 @@ let createHtml = function(){
           {
             std::cout << "Hello" << std::endl;
           }
-          
+
       </sanitise>
       </CodeCard>
 

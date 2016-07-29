@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './basic/Menu';
-import FlatButton from 'material-ui/lib/flat-button';
+import FlatButton from 'material-ui/FlatButton';
 
 import BasicShapes from './basic/BasicShapes';
 
@@ -16,7 +16,7 @@ class MainPage extends React.Component{
     render(){
       return (
         <div>
-    {this.state.currentPage}
+          <Menu></Menu>
         </div>
       );
     }
