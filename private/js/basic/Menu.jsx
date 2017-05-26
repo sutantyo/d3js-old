@@ -7,13 +7,14 @@ import hljs from 'highlight.js';
 
 import Basic from './Basic';
 import BasicShapes from './BasicShapes';
+import Draggable from './Draggable';
 import ForceLayout from '../advanced/ForceLayout';
-
 
 let itemList = {};
 itemList["Basic"] = Basic;
 itemList["BasicShapes"] = BasicShapes;
 itemList["ForceLayout"] = ForceLayout;
+itemList["Draggable"] = Draggable;
 
 let menuData = [ { name: "Basic", title: "The Basics",
                       width: "24%", height:"200px", color: "white" },
@@ -28,6 +29,8 @@ let menuData = [ { name: "Basic", title: "The Basics",
                  { name: "BasicAnimations", title: "Simple Animations",
                       width: "24%", height:"200px", color: "white" },
                  { name: "ForceLayout", title: "Force Layout",
+                      width: "24%", height:"200px", color: "white" },
+                 { name: "Draggable", title: "Drag and Drop",
                       width: "24%", height:"200px", color: "white" }
                ];
 

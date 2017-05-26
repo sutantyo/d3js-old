@@ -54,21 +54,12 @@ class BasicShapes extends React.Component{
 export default BasicShapes;
 
 let draw = function(){
-  //console.log('calling draw');
-  d3.select('#circles')
-    .append('svg')
-      .attr('width','100%')
-      .attr('height','100%')
-    .append('circle')
-      .attr('cx',25)
-      .attr('cy',25)
-      .attr('r',25)
-      .style('fill','purple')
+  console.log('calling draw');
 }
 
 let createHtml = function(){
   return <div className='container'>
-      <h2> Lorem Ipsum </h2>
+      <h2>Basic</h2>
 
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the

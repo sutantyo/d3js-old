@@ -20,7 +20,7 @@ let paperStyle = {
   marginBottom: '0px',
 }
 
-class BasicShapes extends React.Component{
+class Draggable extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -28,13 +28,17 @@ class BasicShapes extends React.Component{
   }
 
   componentDidMount(){
-    //console.log("calling componentDidMount");
+    console.log("calling componentDidMount");
     hljs.initHighlightingOnLoad(this);
+
+    console.log("Hi");
+    console.log(this.className);
+    let el = ReactDOM.findDOMNode(this);
+    console.log("Console is" + el);
     //console.log(this);
     //hljs.highlightBlock.bind(this,this);
     //let current = ReactDOM.findDOMNode(this);
     //hljs.highlightBlock(current);
-    draw();
   }
   createMarkup(){
     return {__html: ''}
@@ -50,25 +54,20 @@ class BasicShapes extends React.Component{
   }
 }
 
-export default BasicShapes;
+export default Draggable;
+
 
 let draw = function(){
-  //console.log('calling draw');
-  d3.select('#circles')
-    .append('svg')
-      .attr('width','100%')
-      .attr('height','100%')
-    .append('circle')
-      .attr('cx',25)
-      .attr('cy',25)
-      .attr('r',25)
-      .style('fill','purple')
+  console.log('calling draw');
+  let svgContainer = d3.select("body").append("svg").attr("width",200).attr("height",200);
+  svgContainer.append("circle").attr("cx",30).attr("cy",30).attr("r",20);
 }
 
 let createHtml = function(){
   return <div className='container'>
-      <h2> Basic Shapes </h2>
+      <h2>Drag and Drop</h2>
 
+      <div id = "d3anchor"></div>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
         industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
@@ -87,7 +86,6 @@ let createHtml = function(){
           {
             std::cout << "Hello" << std::endl;
           }
-
       </sanitise>
       </CodeCard>
 
